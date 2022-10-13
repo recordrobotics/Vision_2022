@@ -6,11 +6,11 @@ import numpy as np
 #identifying cv version, needed for tracker type
 (major_ver, minor_ver, subminor_ver) = (cv.__version__).split('.')
  
-#choosing tracker types
+#choosing tracker types; a guide is available here: https://pyimagesearch.com/2018/08/06/tracking-multiple-objects-with-opencv/
 if __name__ == '__main__' :
-
+    #The only ones that work are CSRT, MIL, and BOOSTING. All of these have accuracy and framerate drop issues
     tracker_types = ['BOOSTING', 'MIL','KCF', 'TLD', 'MEDIANFLOW', 'GOTURN', 'MOSSE', 'CSRT']
-    tracker_type = tracker_types[7]
+    tracker_type = tracker_types[2]
  
     if int(minor_ver) < 3:
         tracker = cv.Tracker_create(tracker_type)
